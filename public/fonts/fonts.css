@@ -1,0 +1,27 @@
+/* Import fonts */
+@font-face {
+  font-family: 'Onest';
+  src: url('./Onest/static/Onest-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('./Onest/static/Onest-Black.ttf') format('ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Wadik';
+  src: url('./Wadik/Wadik.otf') format('otf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('./Onest/Onest-Bold.ttf') format('ttf');
+  font-style: normal;
+}
