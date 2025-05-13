@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Experts.css';
 
 const experts = [
@@ -149,13 +149,16 @@ const experts = [
 ];
 
 const Experts: React.FC = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const visibleExperts = isExpanded ? experts : experts.slice(0, 4);
+
   return (
     <section id="experts" className="experts-section">
       <div className="container">
         <h2 className="section-title">ЭКСПЕРТЫ</h2>
         
-        <div className="experts-grid">
-          {experts.map(expert => (
+        <div className={`experts-grid ${isExpanded ? 'expanded' : ''}`}>
+          {visibleExperts.map(expert => (
             <div key={expert.id} className="expert-card">
               <div className="expert-image">
                 <img src={expert.image} alt={expert.name} />
@@ -167,6 +170,15 @@ const Experts: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {experts.length > 4 && (
+          <button 
+            className="show-more-btn"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? 'Скрыть' : 'Показать всех экспертов'}
+          </button>
+        )}
       </div>
     </section>
   );

@@ -74,9 +74,8 @@ const Topics: React.FC = () => {
     <section id="topics" className="py-20 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="topics-header text-center">
-          <h2 className="topics-title relative inline-block" style={{fontFamily: 'Onest, sans-serif', fontWeight: 900, fontSize: 48, color: '#333', textAlign: 'center', lineHeight: 1, marginBottom: 28}}>
-            ТЕМЫ ДЛЯ <span style={{color: '#2563EB'}}>ОБСУЖДЕНИЙ</span>
-            <span className="topics-title-underline" />
+          <h2 className="topics-title relative inline-block" style={{fontFamily: 'Onest, sans-serif', fontWeight: 900, fontSize: 48, color: '#151d50', textAlign: 'center', lineHeight: 1, marginBottom: 16}}>
+            ТЕМЫ ДЛЯ <span style={{color: '#151d50'}}>ОБСУЖДЕНИЙ</span>
           </h2>
           <p style={{fontFamily: 'Onest, sans-serif', fontWeight: 700, fontSize: 20, color: '#4B5563', opacity: 0.8, marginBottom: 32, marginTop: 0, textAlign: 'center'}}>
             Ключевые направления развития технологий и промышленности
@@ -107,7 +106,7 @@ const Topics: React.FC = () => {
           <div className="text-center mt-12">
             <button
               onClick={() => setShowAll(!showAll)}
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105 font-medium text-lg shadow-md"
+              className="px-8 py-3 bg-[#151d50] hover:bg-[#30378f] text-white rounded-lg transition-all duration-300 transform hover:scale-105 font-bold text-base shadow-md"
             >
               {showAll ? 'Показать меньше' : 'Показать все темы'}
             </button>
@@ -131,18 +130,6 @@ const style = `
 .topics-header {
   margin-bottom: 48px;
 }
-.topics-title-underline {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -24px;
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #2563EB, #818cf8);
-  border-radius: 2px;
-  display: block;
-}
 @media (max-width: 768px) {
   .topics-title {
     font-size: 32px !important;
@@ -150,9 +137,6 @@ const style = `
   .topics-header p {
     font-size: 16px !important;
     padding: 0 16px;
-  }
-  .topics-title-underline {
-    bottom: -16px;
   }
   .topics-header {
     margin-bottom: 32px;

@@ -7,21 +7,10 @@
   font-family: 'Onest', sans-serif;
   font-weight: 900;
   font-size: 36px;
-  color: #333;
+  color: #151d50;
   margin-bottom: 60px;
   text-align: center;
   position: relative;
-}
-
-.section-title:after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: #00B5B8;
 }
 
 .team-members {
@@ -36,13 +25,13 @@
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 181, 184, 0.15);
+  box-shadow: 0 5px 15px rgba(73, 99, 174, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 181, 184, 0.25);
+  box-shadow: 0 8px 20px rgba(73, 99, 174, 0.25);
 }
 
 .member-image {
@@ -70,14 +59,14 @@
   font-family: 'Onest', sans-serif;
   font-weight: 900;
   font-size: 20px;
-  color: #333;
+  color: #151d50;
   margin-bottom: 5px;
 }
 
 .position {
   font-family: 'Onest', sans-serif;
   font-size: 16px;
-  color: #00B5B8;
+  color: #666;
   margin-bottom: 15px;
 }
 
@@ -94,7 +83,7 @@
 }
 
 .contact-details .contact-icon {
-  color: #00B5B8;
+  color: #4963ae;
 }
 
 .contact-details span {

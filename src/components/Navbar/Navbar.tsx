@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
@@ -98,6 +98,10 @@ const Navbar: React.FC = () => {
               <Mail size={16} />
               <span>techpro@s-kon.ru</span>
             </a>
+            <div className="top-bar-link">
+              <MapPin size={16} />
+              <span>г. Москва КВЦ "Патриот"</span>
+            </div>
           </div>
           <a href="https://t.me/TechPro_Forum" target="_blank" rel="noopener noreferrer" className="top-bar-telegram">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="20" height="20">

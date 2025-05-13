@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import News from './components/News/News';
+import PhotoBlock from './components/PhotoBlock/PhotoBlock';
 import About from './components/About/About';
 import Experts from './components/Experts/Experts';
 import Partners from './components/Partners/Partners';
@@ -12,6 +13,7 @@ import Projects from './components/Projects/Projects';
 import Contacts from './components/Contacts/Contacts';
 import Registration from './components/Registration/Registration';
 import Footer from './components/Footer/Footer';
+
 import NewsRoutes from './routes/NewsRoutes';
 
 function HomePage() {
@@ -19,10 +21,11 @@ function HomePage() {
     <>
       <Hero />
       <News />
+      <PhotoBlock />
       <About />
+      <Topics />
       <Experts />
       <Partners />
-      <Topics />
       <Resolutions />
       <Projects />
       <Contacts />

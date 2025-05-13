@@ -73,23 +73,23 @@ const Registration: React.FC = () => {
   };
 
   return (
-    <section id="register" className="py-20 bg-blue-800 text-white relative overflow-hidden">
+    <section id="register" className="py-12 bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800 relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-700/50 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 -left-40 w-80 h-80 bg-indigo-600/30 rounded-full blur-3xl"></div>
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 -left-40 w-80 h-80 bg-indigo-200/30 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Регистрация на мероприятие</h2>
-          <p className="text-lg text-blue-100">
+        <div className="max-w-2xl mx-auto text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-[#151d50]">Регистрация на мероприятие</h2>
+          <p className="text-base text-gray-600">
             Зарегистрируйтесь для участия в ТехПро 2025 и получите доступ к эксклюзивным докладам, 
             нетворкингу с лидерами индустрии и инновационным решениям.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
           {!isSubmitted ? (
-            <form ref={formRef} onSubmit={handleSubmit} className="p-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="p-6">
               {error && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="text-red-600">{error}</p>

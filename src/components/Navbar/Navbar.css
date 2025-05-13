@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(48, 55, 143, 0.8);
   backdrop-filter: blur(5px);
   z-index: 1001;
   padding: 8px 0;
@@ -21,21 +21,23 @@
 .top-bar-contacts {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .top-bar-link {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #BBBBBB;
+  color: #ffffff;
   text-decoration: none;
   font-family: 'Onest', sans-serif;
   font-size: 14px;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .top-bar-link:hover {
-  color: #FFFFFF;
+  color: #c9c9c9  ;
 }
 
 .top-bar-telegram {
@@ -109,7 +111,7 @@
 }
 
 .register-btn {
-  background-color: #FF4400;
+  background-color: #ee1b24;
   color: #FFFFFF;
   border: none;
   border-radius: 5px;
@@ -124,7 +126,7 @@
 }
 
 .register-btn:hover {
-  background-color: #e03e00;
+  background-color: #c91821;
   transform: translateY(-2px);
   box-shadow: 0 0 30px rgba(255, 68, 0, 0.5);
 }
@@ -136,20 +138,24 @@
   background: none;
   border: none;
   padding: 0;
+  z-index: 1002;
+  position: relative;
 }
 
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 75px;
+  top: 0;
   left: 0;
   width: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.95);
-  padding: 20px;
+  padding: 80px 20px 20px;
   transform: translateY(-100%);
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  z-index: 999;
 }
 
 .mobile-menu.open {
@@ -175,7 +181,7 @@
 }
 
 .mobile-register-btn {
-  background-color: #FF4400;
+  background-color: #ee1b24;
   color: #FFFFFF;
   border: none;
   border-radius: 5px;
@@ -193,7 +199,7 @@
 }
 
 .mobile-register-btn:hover {
-  background-color: #e03e00;
+  background-color: #c91821;
   transform: translateY(-2px);
   box-shadow: 0 0 30px rgba(255, 68, 0, 0.5);
 }
@@ -243,6 +249,18 @@
   .mobile-register-btn {
     font-size: 16px;
     padding: 10px 25px;
+  }
+
+  .top-bar-contacts {
+    gap: 10px;
+  }
+  
+  .top-bar-link {
+    font-size: 12px;
+  }
+
+  .top-bar-link:last-child {
+    display: none;
   }
 }
 

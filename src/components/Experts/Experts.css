@@ -1,41 +1,39 @@
 .experts-section {
   padding: 50px 0;
-  background-color: #fff;
+  background-color: #F5F7FA;
 }
 
 .section-title {
   font-family: 'Onest', sans-serif;
   font-weight: 900;
-  font-size: 36px;
-  color: #333;
+  font-size: 48px !important;
+  color: #151d50 !important;
   margin-bottom: 60px;
   text-align: center;
   position: relative;
 }
 
-.section-title:after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background-color: #0ABAB5;
-}
-
 .experts-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: all 0.5s ease;
+}
+
+.experts-grid.expanded {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .expert-card {
   background-color: #f9f9f9;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  max-width: 280px;
+  margin: 0 auto;
 }
 
 .expert-card:hover {
@@ -44,7 +42,7 @@
 }
 
 .expert-image {
-  height: 320px;
+  height: 240px;
   overflow: hidden;
   position: relative;
 }
@@ -62,34 +60,72 @@
 }
 
 .expert-info {
-  padding: 20px;
+  padding: 16px;
   text-align: center;
 }
 
 .expert-info h3 {
   font-family: 'Onest', sans-serif;
   font-weight: 900;
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 8px;
+  font-size: 18px;
+  color: #151d50;
+  margin-bottom: 6px;
 }
 
 .expert-description {
   font-family: 'Onest', sans-serif;
   font-size: 14px;
   color: #777;
-  line-height: 1.5;
+  line-height: 1.4;
+}
+
+.show-more-btn {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 32px;
+  background: #151d50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Onest', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+  background: #30378f;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 1200px) {
   .experts-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  
+  .experts-grid.expanded {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .section-title {
+    font-size: 42px !important;
+    margin-bottom: 50px;
+  }
 }
 
 @media (max-width: 992px) {
   .experts-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .experts-grid.expanded {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-title {
+    font-size: 36px !important;
+    margin-bottom: 45px;
   }
 }
 
@@ -98,17 +134,25 @@
     grid-template-columns: 1fr;
   }
   
+  .experts-grid.expanded {
+    grid-template-columns: 1fr;
+  }
+  
   .expert-card {
-    max-width: 350px;
+    max-width: 280px;
     margin: 0 auto;
+  }
+
+  .expert-image {
+    height: 200px;
   }
   
   .experts-section {
-    padding: 50px 0;
+    padding: 40px 0;
   }
   
   .section-title {
-    font-size: 30px;
-    margin-bottom: 40px;
+    font-size: 28px !important;
+    margin-bottom: 30px;
   }
 }
