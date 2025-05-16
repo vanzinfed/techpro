@@ -33,12 +33,11 @@
 
 .partners-main-title {
   font-family: 'Onest', 'Inter', Arial, sans-serif;
-  font-size: 48px;
-  font-weight: 900;
+  font-size: 32px;
+  font-weight: 800;
   color: #FFFFFF;
   margin-bottom: 0px;
   letter-spacing: 1px;
-  text-transform: uppercase;
   position: relative;
 }
 

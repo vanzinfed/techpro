@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background-color: rgba(48, 55, 143, 0.8);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   z-index: 1001;
   padding: 8px 0;
 }
@@ -36,8 +36,8 @@
   white-space: nowrap;
 }
 
-.top-bar-link:hover {
-  color: #c9c9c9  ;
+.top-bar-link:hover { 
+  color: #e2e2e2  ;
 }
 
 .top-bar-telegram {
@@ -64,7 +64,7 @@
 }
 
 .navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(48, 55, 143, 0.8);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   padding: 15px 0;
@@ -97,7 +97,7 @@
 }
 
 .nav-link {
-  color: #BBBBBB;
+  color: #ebebeb;
   text-decoration: none;
   font-family: 'Onest', sans-serif;
   font-weight: 900;
@@ -107,7 +107,7 @@
 }
 
 .nav-link:hover {
-  color: #FFFFFF;
+  color: #c7c7c7;
 }
 
 .register-btn {

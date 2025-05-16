@@ -30,8 +30,8 @@ const Resolutions: React.FC = () => {
     <section id="resolution" className="py-20" style={{ background: '#F5F7FA' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 resolutions-header">
-          <h2 className="resolutions-title relative inline-block" style={{fontFamily: 'Onest, sans-serif', fontWeight: 900, fontSize: 'clamp(28px, 5vw, 48px)', color: '#151d50', textAlign: 'center', lineHeight: 1, marginBottom: 16}}>
-            РЕЗОЛЮЦИЯ <span style={{color: '#151d50'}}>«ТехПро»</span>
+          <h2 className="resolutions-title relative inline-block" style={{fontFamily: 'Onest, sans-serif', fontWeight: 800, fontSize: 'clamp(28px, 5vw, 32px)', color: '#151d50', textAlign: 'center', lineHeight: 1, marginBottom: 16}}>
+            Резолюция <span style={{color: '#151d50'}}>«ТехПро»</span>
           </h2>
           <p style={{fontFamily: 'Onest, sans-serif', fontWeight: 600, fontSize: 'clamp(16px, 3vw, 20px)', color: '#4B5563', opacity: 0.8, marginBottom: 0, marginTop: 0, textAlign: 'center', padding: '0 16px'}}>
             Итоговые документы и рекомендации экспертных встреч прошлых лет

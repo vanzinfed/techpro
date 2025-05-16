@@ -80,7 +80,7 @@ const Registration: React.FC = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl mx-auto text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3 text-[#151d50]">Регистрация на мероприятие</h2>
+          <h2 className="text-[32px] font-[800] mb-3 text-[#151d50]" style={{fontFamily: 'Onest, sans-serif'}}>Регистрация на мероприятие</h2>
           <p className="text-base text-gray-600">
             Зарегистрируйтесь для участия в ТехПро 2025 и получите доступ к эксклюзивным докладам, 
             нетворкингу с лидерами индустрии и инновационным решениям.

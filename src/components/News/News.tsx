@@ -25,7 +25,7 @@ const News: React.FC = () => {
 
   return (
     <section className="news-section">
-      <h2 className="news-title">ПОСЛЕДНИЕ НОВОСТИ</h2>
+      <h2 className="news-title">Новости</h2>
       <div className="news-grid">
         <div className="main-news">
           {mainNews && (
@@ -33,7 +33,6 @@ const News: React.FC = () => {
               <img src={mainNews.image} alt={mainNews.title} className="main-news-image" />
               <div className="main-news-info">
                 <h3 className="main-news-title">{mainNews.title}</h3>
-                <div className="main-news-date">{mainNews.date}</div>
               </div>
             </Link>
           )}
@@ -45,7 +44,6 @@ const News: React.FC = () => {
                 <img src={sideNews.image} alt={sideNews.title} className="side-news-image" />
                 <div className="side-news-info">
                   <div className="side-news-title">{sideNews.title}</div>
-                  <div className="side-news-date">{sideNews.date}</div>
                 </div>
               </Link>
             </div>

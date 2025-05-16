@@ -74,10 +74,10 @@ const Topics: React.FC = () => {
     <section id="topics" className="py-20 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="topics-header text-center">
-          <h2 className="topics-title relative inline-block" style={{fontFamily: 'Onest, sans-serif', fontWeight: 900, fontSize: 48, color: '#151d50', textAlign: 'center', lineHeight: 1, marginBottom: 16}}>
-            ТЕМЫ ДЛЯ <span style={{color: '#151d50'}}>ОБСУЖДЕНИЙ</span>
+          <h2 className="topics-title relative inline-block" style={{fontFamily: 'Onest, sans-serif', fontWeight: 800, fontSize: 32, color: '#151d50', textAlign: 'center', lineHeight: 1, marginBottom: 16}}>
+            Темы для <span style={{color: '#151d50'}}>обсуждения</span>
           </h2>
-          <p style={{fontFamily: 'Onest, sans-serif', fontWeight: 700, fontSize: 20, color: '#4B5563', opacity: 0.8, marginBottom: 32, marginTop: 0, textAlign: 'center'}}>
+          <p style={{fontFamily: 'Onest, sans-serif', fontWeight: 600, fontSize: 20, color: '#4B5563', opacity: 0.8, marginBottom: 32, marginTop: 0, textAlign: 'center'}}>
             Ключевые направления развития технологий и промышленности
           </p>
         </div>

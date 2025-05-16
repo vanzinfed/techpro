@@ -80,7 +80,7 @@ const Partners: React.FC = () => {
       <div className="partners-bg-gradient"></div>
       <div className="container">
         <div className="partners-header">
-          <h2 className="partners-main-title">ПАРТНЕРЫ</h2>
+          <h2 className="partners-main-title">Партнеры</h2>
         </div>
         <div className="partners-marquee-wrapper">
           <div className="partners-marquee" ref={marqueeRef}>

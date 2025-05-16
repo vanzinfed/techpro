@@ -155,7 +155,7 @@ const Experts: React.FC = () => {
   return (
     <section id="experts" className="experts-section">
       <div className="container">
-        <h2 className="section-title">ЭКСПЕРТЫ</h2>
+        <h2 className="section-title">Эксперты</h2>
         
         <div className={`experts-grid ${isExpanded ? 'expanded' : ''}`}>
           {visibleExperts.map(expert => (
