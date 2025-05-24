@@ -1,0 +1,128 @@
+/* Import fonts */
+@import url('/fonts/fonts.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #FF4400;
+  --secondary-color: #3B82F6;
+  --text-color: #BBBBBB;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Onest', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.wadik {
+  font-family: 'Wadik', sans-serif;
+}
+
+.onest {
+  font-family: 'Onest', sans-serif;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  z-index: 9999;
+}
+
+.loader {
+  position: relative;
+  margin: auto;
+  box-sizing: border-box;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid rgba(48, 48, 48, 0.568);
+  transform-origin: 50% 50%;
+  transform: perspective(200px) rotateX(66deg);
+  animation: spinner-wiggle 1.2s infinite;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 4px solid #0000;
+  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0, 0.8) infinite,
+    spinner-fade 1.2s linear infinite;
+}
+
+.loader:before {
+  border-top-color: #312faa;
+}
+
+.loader:after {
+  border-top-color: #ff3d00;
+  animation-delay: 0.4s;
+}
+
+@keyframes spinner-spin {
+  100% { transform: rotate(360deg)}
+}
+
+@keyframes spinner-fade {
+  25%, 75% { opacity: 0.1}
+  50% { opacity: 1 }
+}
+
+@keyframes spinner-wiggle {
+  0%, 100% { transform: perspective(200px) rotateX(66deg) }
+  50% { transform: perspective(200px) rotateX(66deg) rotate(180deg) }
+}

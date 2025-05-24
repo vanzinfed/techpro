@@ -1,0 +1,74 @@
+
+/* Import fonts */
+@font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest/Onest-VariableFont_wght.ttf') format('truetype'),
+       url('/fonts/Onest/static/Onest-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest/static/Onest-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'Wadik';
+  src: url('/fonts/Wadik/Wadik.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest/static/Onest-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+/* Import fonts
+@font-face {
+  font-family: 'Onest';
+  src: url('./Onest/static/Onest-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest/static/Onest-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'Wadik';
+  src: url('/fonts/Wadik/Wadik.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: normal;
+}
+
+@font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest/static/Onest-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+
+} */

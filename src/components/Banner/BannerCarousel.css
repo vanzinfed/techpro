@@ -1,0 +1,96 @@
+.banner-carousel-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding-top: 15.625%; /* Maintains 1920x300 aspect ratio (300/1920 = 0.15625) */
+  }
+  
+  .banner-carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .banner-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .banner-slide.active {
+    opacity: 1;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+  }
+  
+  .nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .nav-button.prev {
+    left: 20px;
+  }
+  
+  .nav-button.next {
+    right: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nav-button {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .nav-button.prev {
+      left: 12px;
+    }
+    
+    .nav-button.next {
+      right: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .nav-button {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .nav-button.prev {
+      left: 8px;
+    }
+    
+    .nav-button.next {
+      right: 8px;
+    }
+  }

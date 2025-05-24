@@ -1,0 +1,158 @@
+.experts-section {
+  padding: 50px 0;
+  background-color: #F5F7FA;
+}
+
+.section-title {
+  font-family: 'Onest', sans-serif;
+  font-weight: 900;
+  font-size: 32px !important;
+  color: #151d50 !important;
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+}
+
+.experts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: all 0.5s ease;
+}
+
+.experts-grid.expanded {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.expert-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.expert-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.expert-image {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.expert-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  transition: transform 0.5s ease;
+}
+
+.expert-card:hover .expert-image img {
+  transform: scale(1.05);
+}
+
+.expert-info {
+  padding: 16px;
+  text-align: center;
+}
+
+.expert-info h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: #151d50;
+  margin-bottom: 6px;
+}
+
+.expert-description {
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.show-more-btn {
+  display: block;
+  margin: 40px auto 0;
+  padding: 12px 32px;
+  background: #151d50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Onest', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+  background: #30378f;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+  .experts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .experts-grid.expanded {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .section-title {
+    font-size: 42px !important;
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .experts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .experts-grid.expanded {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-title {
+    font-size: 36px !important;
+    margin-bottom: 45px;
+  }
+}
+
+@media (max-width: 576px) {
+  .experts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .experts-grid.expanded {
+    grid-template-columns: 1fr;
+  }
+  
+  .expert-card {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .expert-image {
+    height: 200px;
+  }
+  
+  .experts-section {
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    font-size: 28px !important;
+    margin-bottom: 30px;
+  }
+}
