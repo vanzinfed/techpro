@@ -2,7 +2,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    padding-top: 15.625%; /* Соотношение сторон 16:3 */
+    padding-top: 15.625%; /* Maintains 1920x300 aspect ratio (300/1920 = 0.15625) */
   }
   
   .banner-carousel {
@@ -25,16 +25,6 @@
   
   .banner-slide.active {
     opacity: 1;
-  }
-  
-  .banner-image-wrapper {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-  }
-  
-  .banner-image-wrapper:hover {
-    transform: scale(1.02);
   }
   
   .banner-image {
@@ -91,13 +81,6 @@
   }
   
   @media (max-width: 480px) {
-    .banner-carousel-container {
-      padding-top: 71.428%; /* Соотношение сторон примерно 3:2 */
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-
     .nav-button {
       width: 28px;
       height: 28px;
