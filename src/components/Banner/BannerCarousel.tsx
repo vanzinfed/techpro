@@ -16,14 +16,14 @@ const bannerImages: BannerImage[] = [
     src: "/banners/banner1.jpg",
     mobileSrc: "/banners/banner1-mobile.jpg",
     alt: "X Юбилейная международная научно-практическая конференция",
-    link: "https://premiya.mrprussia.ru/?ysclid=mb3bmdxlqw122566694"
+    link: "https://arctic.s-kon.ru/?ysclid=mb3bnxc0jy786930976"
   },
   {
     id: 2,
     src: "/banners/banner2.jpg",
     mobileSrc: "/banners/banner2-mobile.jpg",
     alt: "Ежегодная премия За развитие Дальнего Востока и Арктики",
-    link: "https://arctic.s-kon.ru/?ysclid=mb3bnxc0jy786930976"
+    link: "https://premiya.mrprussia.ru/?ysclid=mb3bmdxlqw122566694"
   }
 ];
 
