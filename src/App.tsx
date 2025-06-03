@@ -22,6 +22,8 @@ import NotFound from './components/NotFound/NotFound';
 // ИМПОРТ НОВОСТЕЙ
 // НЕ ЗАБУДЬ ДОБАВИТЬ В РОУТЕР
 
+import News8 from './components/News/news/8';
+import News7 from './components/News/news/7';
 import News6 from './components/News/news/6';
 import News5 from './components/News/news/5';
 import News4 from './components/News/news/4';
@@ -126,6 +128,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/news/8" element={<News8 />} />
+          <Route path="/news/7" element={<News7 />} />
           <Route path="/news/6" element={<News6 />} />
           <Route path="/news/5" element={<News5 />} />
           <Route path="/news/4" element={<News4 />} />

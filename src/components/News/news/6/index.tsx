@@ -10,7 +10,7 @@ import newsImageMain from './main.jpg';
 export const newsMeta = {
   id: 6,
   title: "Физико-технический институт имени А. Ф. Иоффе РАН выступит генеральным партнёром III Экспертной встречи «Технологический прорыв»",
-  date: "12 августа 2025",
+  date: "29 Май, 2025",
   image: newsImage,
   imagePool: newsImagePool,
   imageMain: newsImageMain,
