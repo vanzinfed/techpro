@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import './News.css';
 
 // ИМПОРТ НОВОСТЕЙ И ОПЕРДЕЛЕНИЕ ЕЁ СТАТУСА
-import { newsMeta as Main } from './news/8';
-import { newsMeta as Side } from './news/7';
+import { newsMeta as Main } from './news/10';
+import { newsMeta as Side } from './news/9';
 
 export type NewsItem = {
   id: number;

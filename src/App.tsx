@@ -22,6 +22,9 @@ import NotFound from './components/NotFound/NotFound';
 // ИМПОРТ НОВОСТЕЙ
 // НЕ ЗАБУДЬ ДОБАВИТЬ В РОУТЕР
 
+
+import News10 from './components/News/news/10';
+import News9 from './components/News/news/9';
 import News8 from './components/News/news/8';
 import News7 from './components/News/news/7';
 import News6 from './components/News/news/6';
@@ -60,18 +63,33 @@ function App() {
     document.title = 'ТЕХПРО - Экспертная встреча';
     
     const preloadImages = () => {
+      // Предварительная загрузка критических изображений
+      const criticalImages = [
+        '/images/hero-bg.jpg',
+        // Добавьте сюда другие критические изображения
+      ];
+
+      const criticalImagePromises = criticalImages.map(src => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = resolve;
+          img.onerror = resolve;
+          img.src = src;
+        });
+      });
+
       // Получаем все изображения на странице
       const images = document.querySelectorAll('img');
       const imagePromises = Array.from(images).map(img => {
         if (img.complete) return Promise.resolve();
         return new Promise(resolve => {
           img.onload = resolve;
-          img.onerror = resolve; // Разрешаем промис даже в случае ошибки
+          img.onerror = resolve;
         });
       });
 
       // Получаем все фоновые изображения
-      const elementsWithBg = document.querySelectorAll('[style*="background-image"]');
+      const elementsWithBg = document.querySelectorAll('[style*="background-image"], [class*="hero"]');
       const bgPromises = Array.from(elementsWithBg).map(element => {
         const bgImage = window.getComputedStyle(element).backgroundImage;
         if (!bgImage || bgImage === 'none') return Promise.resolve();
@@ -86,7 +104,7 @@ function App() {
       });
 
       // Ждем загрузки всех изображений
-      return Promise.all([...imagePromises, ...bgPromises]);
+      return Promise.all([...criticalImagePromises, ...imagePromises, ...bgPromises]);
     };
 
     const preloadFonts = () => {
@@ -128,6 +146,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/news/10" element={<News10 />} />
+          <Route path="/news/9" element={<News9 />} />
           <Route path="/news/8" element={<News8 />} />
           <Route path="/news/7" element={<News7 />} />
           <Route path="/news/6" element={<News6 />} />
