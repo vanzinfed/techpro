@@ -64,89 +64,94 @@ function App() {
   useEffect(() => {
     document.title = 'ТЕХПРО - Экспертная встреча';
     
-    const preloadImages = async () => {
-      // Получаем все изображения на странице
-      const images = Array.from(document.querySelectorAll('img'));
-      const bgImages = Array.from(document.querySelectorAll('[style*="background-image"], [class*="hero"]'));
-      
-      // Создаем массив всех URL изображений
-      const imageUrls = new Set<string>();
-      
-      // Добавляем URL из тегов img
-      images.forEach(img => {
-        if (img.src) imageUrls.add(img.src);
-      });
-      
-      // Добавляем URL из background-image
-      bgImages.forEach(element => {
-        const bgImage = window.getComputedStyle(element).backgroundImage;
-        if (bgImage && bgImage !== 'none') {
-          const url = bgImage.slice(4, -1).replace(/["']/g, "");
-          imageUrls.add(url);
-        }
-      });
-
-      // Добавляем критические изображения
-      const criticalImages = [
-        '/images/hero-bg.jpg',
-        // Добавьте сюда другие критические изображения
-      ];
-      criticalImages.forEach(url => imageUrls.add(url));
-
-      const totalImages = imageUrls.size;
-      let loadedImages = 0;
-
-      // Загружаем все изображения
-      const loadPromises = Array.from(imageUrls).map(url => {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.onload = () => {
-            loadedImages++;
-            setLoadingProgress(Math.round((loadedImages / totalImages) * 100));
-            resolve(null);
-          };
-          img.onerror = () => {
-            loadedImages++;
-            setLoadingProgress(Math.round((loadedImages / totalImages) * 100));
-            resolve(null);
-          };
-          img.src = url;
-        });
-      });
-
-      await Promise.all(loadPromises);
-    };
-
-    const preloadFonts = async () => {
-      try {
-        await document.fonts.ready;
-      } catch (error) {
-        console.error('Ошибка при загрузке шрифтов:', error);
-      }
-    };
-
-    const initializeApp = async () => {
+    const preloadCriticalAssets = async () => {
       try {
         setLoadingProgress(0);
         
-        // Загружаем ресурсы параллельно
-        await Promise.all([
-          preloadImages(),
-          preloadFonts(),
-        ]);
+        // Критически важные изображения для первого экрана
+        const criticalImages = [
+          '/images/hero-bg.webp', // Главное фоновое изображение
+          '/images/logo.png',     // Логотип
+          '/banners/banner1.jpg', // Первый баннер
+          '/banners/banner2.jpg'  // Второй баннер
+        ];
 
-        // Даем небольшую задержку для плавности
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Дополнительные изображения для предзагрузки
+        const additionalImages = [
+          '/images/part1.png',
+          '/images/part2.png',
+          '/images/part3.png',
+          '/images/part4.png',
+          '/images/part5.png',
+          '/images/part6.png',
+          '/expert/ex1.jpg',
+          '/expert/ex2.jpg',
+          '/expert/ex3.jpg',
+          '/expert/ex4.jpg'
+        ];
+
+        let totalImages = criticalImages.length + additionalImages.length;
+        let loadedImages = 0;
+
+        const updateProgress = () => {
+          loadedImages++;
+          setLoadingProgress(Math.round((loadedImages / totalImages) * 100));
+        };
+
+        // Функция для загрузки изображения
+        const loadImage = (src: string): Promise<void> => {
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+              updateProgress();
+              resolve();
+            };
+            img.onerror = () => {
+              console.warn(`Не удалось загрузить изображение: ${src}`);
+              updateProgress();
+              resolve();
+            };
+            img.src = src;
+          });
+        };
+
+        // Сначала загружаем критически важные изображения
+        console.log('Загрузка критически важных изображений...');
+        await Promise.all(criticalImages.map(loadImage));
+        
+        // Затем загружаем дополнительные изображения
+        console.log('Загрузка дополнительных изображений...');
+        await Promise.all(additionalImages.map(loadImage));
+
+        // Предзагрузка шрифтов
+        try {
+          await document.fonts.ready;
+          console.log('Шрифты загружены');
+        } catch (error) {
+          console.warn('Ошибка при загрузке шрифтов:', error);
+        }
+
+        // Небольшая задержка для плавности
+        await new Promise(resolve => setTimeout(resolve, 300));
         
         setLoadingProgress(100);
+        
+        // Дополнительная задержка перед скрытием загрузчика
+        await new Promise(resolve => setTimeout(resolve, 200));
+        
         setIsLoading(false);
+        console.log('Загрузка завершена');
+        
       } catch (error) {
         console.error('Ошибка при загрузке ресурсов:', error);
-        setIsLoading(false);
+        // В случае ошибки все равно скрываем загрузчик через 3 секунды
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 3000);
       }
     };
 
-    initializeApp();
+    preloadCriticalAssets();
   }, []);
 
   if (isLoading) {
