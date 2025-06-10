@@ -17,12 +17,13 @@ import Footer from './components/Footer/Footer';
 import BannerCarousel from './components/Banner/BannerCarousel';
 import Loader from './components/Loader/Loader';
 import NotFound from './components/NotFound/NotFound';
+import CookieConsent from './components/CookieConsent/CookieConsent';
 
 
 // ИМПОРТ НОВОСТЕЙ
 // НЕ ЗАБУДЬ ДОБАВИТЬ В РОУТЕР
 
-
+import News11 from './components/News/news/11';
 import News10 from './components/News/news/10';
 import News9 from './components/News/news/9';
 import News8 from './components/News/news/8';
@@ -58,76 +59,90 @@ function HomePage() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
     document.title = 'ТЕХПРО - Экспертная встреча';
     
-    const preloadImages = () => {
-      // Предварительная загрузка критических изображений
+    const preloadImages = async () => {
+      // Получаем все изображения на странице
+      const images = Array.from(document.querySelectorAll('img'));
+      const bgImages = Array.from(document.querySelectorAll('[style*="background-image"], [class*="hero"]'));
+      
+      // Создаем массив всех URL изображений
+      const imageUrls = new Set<string>();
+      
+      // Добавляем URL из тегов img
+      images.forEach(img => {
+        if (img.src) imageUrls.add(img.src);
+      });
+      
+      // Добавляем URL из background-image
+      bgImages.forEach(element => {
+        const bgImage = window.getComputedStyle(element).backgroundImage;
+        if (bgImage && bgImage !== 'none') {
+          const url = bgImage.slice(4, -1).replace(/["']/g, "");
+          imageUrls.add(url);
+        }
+      });
+
+      // Добавляем критические изображения
       const criticalImages = [
         '/images/hero-bg.jpg',
         // Добавьте сюда другие критические изображения
       ];
+      criticalImages.forEach(url => imageUrls.add(url));
 
-      const criticalImagePromises = criticalImages.map(src => {
+      const totalImages = imageUrls.size;
+      let loadedImages = 0;
+
+      // Загружаем все изображения
+      const loadPromises = Array.from(imageUrls).map(url => {
         return new Promise((resolve) => {
           const img = new Image();
-          img.onload = resolve;
-          img.onerror = resolve;
-          img.src = src;
-        });
-      });
-
-      // Получаем все изображения на странице
-      const images = document.querySelectorAll('img');
-      const imagePromises = Array.from(images).map(img => {
-        if (img.complete) return Promise.resolve();
-        return new Promise(resolve => {
-          img.onload = resolve;
-          img.onerror = resolve;
-        });
-      });
-
-      // Получаем все фоновые изображения
-      const elementsWithBg = document.querySelectorAll('[style*="background-image"], [class*="hero"]');
-      const bgPromises = Array.from(elementsWithBg).map(element => {
-        const bgImage = window.getComputedStyle(element).backgroundImage;
-        if (!bgImage || bgImage === 'none') return Promise.resolve();
-        
-        const url = bgImage.slice(4, -1).replace(/["']/g, "");
-        return new Promise(resolve => {
-          const img = new Image();
-          img.onload = resolve;
-          img.onerror = resolve;
+          img.onload = () => {
+            loadedImages++;
+            setLoadingProgress(Math.round((loadedImages / totalImages) * 100));
+            resolve(null);
+          };
+          img.onerror = () => {
+            loadedImages++;
+            setLoadingProgress(Math.round((loadedImages / totalImages) * 100));
+            resolve(null);
+          };
           img.src = url;
         });
       });
 
-      // Ждем загрузки всех изображений
-      return Promise.all([...criticalImagePromises, ...imagePromises, ...bgPromises]);
+      await Promise.all(loadPromises);
     };
 
-    const preloadFonts = () => {
-      // Проверяем загрузку шрифтов
-      return document.fonts.ready;
+    const preloadFonts = async () => {
+      try {
+        await document.fonts.ready;
+      } catch (error) {
+        console.error('Ошибка при загрузке шрифтов:', error);
+      }
     };
 
     const initializeApp = async () => {
       try {
-        // Ждем загрузки всех ресурсов
+        setLoadingProgress(0);
+        
+        // Загружаем ресурсы параллельно
         await Promise.all([
           preloadImages(),
           preloadFonts(),
-          // Добавьте здесь другие асинхронные операции, если они есть
         ]);
 
         // Даем небольшую задержку для плавности
         await new Promise(resolve => setTimeout(resolve, 500));
         
+        setLoadingProgress(100);
         setIsLoading(false);
       } catch (error) {
         console.error('Ошибка при загрузке ресурсов:', error);
-        setIsLoading(false); // В случае ошибки все равно показываем контент
+        setIsLoading(false);
       }
     };
 
@@ -135,7 +150,15 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <Loader />;
+    return (
+      <div className="loader-container">
+        <div className="text-center">
+          <div className="loader"></div>
+          <div className="mt-4 text-lg font-medium text-gray-700">Загрузка...</div>
+          <div className="mt-2 text-sm text-gray-500">{loadingProgress}%</div>
+        </div>
+      </div>
+    );
   }
 
   // ДОБАВИТЬ В РОУТЕР
@@ -146,6 +169,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/news/11" element={<News11 />} />
           <Route path="/news/10" element={<News10 />} />
           <Route path="/news/9" element={<News9 />} />
           <Route path="/news/8" element={<News8 />} />
@@ -160,6 +184,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
+        <CookieConsent />
       </div>
     </Router>
   );
