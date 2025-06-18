@@ -57,10 +57,10 @@ const Registration: React.FC = () => {
       };
 
       await emailjs.send(
-        'service_vovw1gm', // Замените на ваш Service ID
-        'template_asnem7s', // Замените на ваш Template ID
+        'service_7j74i5u', // Замените на ваш Service ID
+        'template_85oukzm', // Замените на ваш Template ID
         templateParams,
-        'i8_PdsBadpJBCtCeU' // Замените на ваш Public Key
+        'WFrZDUta_EnnLaIX1' // Замените на ваш Public Key
       );
 
       setIsSubmitted(true);
