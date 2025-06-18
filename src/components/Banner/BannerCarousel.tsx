@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './BannerCarousel.css';
 
@@ -24,12 +24,20 @@ const bannerImages: BannerImage[] = [
     mobileSrc: "/banners/banner2-mobile.jpg",
     alt: "Ежегодная премия За развитие Дальнего Востока и Арктики",
     link: "https://premiya.mrprussia.ru/"
+  },
+  {
+    id: 3,
+    src: "/banners/banner3.jpg",
+    mobileSrc: "/banners/banner3-mobile.jpg",
+    alt: "Ежегодная премия За развитие Дальнего Востока и Арктики",
+    link: "https://ugol.s-kon.ru/"
   }
 ];
 
 const BannerCarousel: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  const timerRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,28 +48,41 @@ const BannerCarousel: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const startTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
       setActiveIndex((current) => (current + 1) % bannerImages.length);
     }, 5000);
+  };
 
-    return () => clearInterval(interval);
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, []);
 
   const goToBanner = (index: number) => {
     setActiveIndex(index);
+    startTimer();
   };
 
   const goToPrevious = () => {
     setActiveIndex((current) => 
       current === 0 ? bannerImages.length - 1 : current - 1
     );
+    startTimer();
   };
 
   const goToNext = () => {
     setActiveIndex((current) => 
       (current + 1) % bannerImages.length
     );
+    startTimer();
   };
 
   const handleBannerClick = (link: string) => {

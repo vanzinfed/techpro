@@ -46,28 +46,31 @@ const Projects: React.FC = () => {
         </div>
         <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="project-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl group">
+            <a
+              key={project.id}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl group block"
+            >
               <div className="project-image w-full h-48 flex items-center justify-center bg-[#F8F8F8] relative">
                 <img src={project.image} alt={project.title} className="max-w-[120px] max-h-[120px] mx-auto my-4 object-contain transition duration-300" />
                 <div className="absolute inset-0">
                   <div className="w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-[#1e293bcc] via-[#1e293b66] to-transparent"></div>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute left-4 bottom-3 flex items-center gap-2 text-white text-[14px] font-normal group-hover:opacity-100 opacity-0 transition-opacity duration-300 hover:underline"
+                  <div
+                    className="absolute left-4 bottom-3 flex items-center gap-2 text-white text-[14px] font-normal group-hover:opacity-100 opacity-0 transition-opacity duration-300"
                     style={{fontFamily: 'Onest, sans-serif'}}
                   >
                     Подробнее о проекте
                     <ExternalLink size={16} strokeWidth={2} className="text-white opacity-80" />
-                  </a>
+                  </div>
                 </div>
               </div>
               <div className="project-info p-4 sm:p-6 text-left">
                 <h3 className="text-[#151d50] font-bold text-[18px] sm:text-[20px] mb-2" style={{fontFamily: 'Onest, sans-serif', textAlign: 'left'}}>{project.title}</h3>
                 <p className="text-[#4B5563] text-[14px] sm:text-[16px]" style={{fontFamily: 'Onest, sans-serif', fontWeight: 400, textAlign: 'justify'}}>{project.description}</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

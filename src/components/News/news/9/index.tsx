@@ -9,7 +9,7 @@ import newsImageMain from './main.jpg';
 export const newsMeta = {
   id: 9,
   title: "Технологические и экономические аспекты вывода угольной генерации электрической и тепловой энергии на инновационный уровень",
-  date: "4 июня 2025",
+  date: "4 июня, 2025",
   image: newsImage,
   imagePool: newsImagePool,
   imageMain: newsImageMain,

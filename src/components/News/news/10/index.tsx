@@ -9,7 +9,7 @@ import newsImageMain from './main.jpg';
 export const newsMeta = {
   id: 10,
   title: "Заседание коллегии Министерства РФ по развитию Дальнего Востока и Арктики",
-  date: "6 июня 2025 года",
+  date: "6 июня, 2025",
   image: newsImage,
   imagePool: newsImagePool,
   imageMain: newsImageMain,

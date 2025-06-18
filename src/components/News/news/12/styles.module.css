@@ -83,17 +83,6 @@
   height: 20px;
 }
 
-.newsLink {
-  color: #1565c0;
-  text-decoration: underline;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.newsLink:hover {
-  color: #003c8f;
-}
-
 /* Медиа-запросы для мобильных устройств */
 @media screen and (max-width: 768px) {
   .newsArticlePage {
