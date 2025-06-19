@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar';
 
 // ИМПОРТ НОВОЙ НОВОСТИ
 
-
+import { newsMeta as news14Meta } from './news/14';
 import { newsMeta as news13Meta } from './news/13';
 import { newsMeta as news12Meta } from './news/12';
 import { newsMeta as news11Meta } from './news/11';
@@ -20,7 +20,7 @@ import { newsMeta as news2Meta } from './news/2';
 import { newsMeta as news1Meta } from './news/1';
 
 // ДОБАВЛЕНИЕ НОВОСТЕЙ В ПУЛ
-const newsItems = [news13Meta, news12Meta, news11Meta, news10Meta, news9Meta, news8Meta, news7Meta, news6Meta, news5Meta, news4Meta, news3Meta, news2Meta, news1Meta].sort((a, b) => b.id - a.id);
+const newsItems = [news14Meta,news13Meta, news12Meta, news11Meta, news10Meta, news9Meta, news8Meta, news7Meta, news6Meta, news5Meta, news4Meta, news3Meta, news2Meta, news1Meta].sort((a, b) => b.id - a.id);
 
 const NewsPool: React.FC = () => {
   const scrollToTop = () => {

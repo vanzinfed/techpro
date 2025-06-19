@@ -14,6 +14,7 @@ const partnerLogos = [
   '/images/part10.png',
   '/images/part11.png',
   '/images/part12.png',
+  '/images/part13.png',
 ];
 
 const Partners: React.FC = () => {
