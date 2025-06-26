@@ -24,6 +24,8 @@ import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton'
 // ИМПОРТ НОВОСТЕЙ
 // НЕ ЗАБУДЬ ДОБАВИТЬ В РОУТЕР
 
+import News16 from './components/News/news/16';
+import News15 from './components/News/news/15';
 import News14 from './components/News/news/14';
 import News13 from './components/News/news/13';
 import News12 from './components/News/news/12';
@@ -173,6 +175,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/news/16" element={<News16 />} />
+          <Route path="/news/15" element={<News15 />} />
           <Route path="/news/14" element={<News14 />} />
           <Route path="/news/13" element={<News13 />} />
           <Route path="/news/12" element={<News12 />} />
